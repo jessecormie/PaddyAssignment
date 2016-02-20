@@ -25,22 +25,19 @@ import javax.swing.SwingConstants;
 
 public class Menu extends JFrame {
 
-	private ArrayList<Customer> customerList = new ArrayList<Customer>();
+	private ArrayList<Customer> customerList;
 	private int position = 0;
-	private String password;
 	private Customer customer = null;
-	private CustomerAccount acc = new CustomerAccount();
-	JFrame f, f1;
-	JLabel firstNameLabel, surnameLabel, pPPSLabel, dOBLabel;
-	JTextField firstNameTextField, surnameTextField, pPSTextField, dOBTextField;
-	JLabel customerIDLabel, passwordLabel;
-	JTextField customerIDTextField, passwordTextField;
-	Container content;
-	Customer e;
-
-	JPanel panel2;
-	JButton add;
-	String PPS, firstName, surname, DOB, CustomerID;
+	private CustomerAccount acc;
+	private JFrame f, f1;
+	private JLabel firstNameLabel, surnameLabel, pPPSLabel, dOBLabel, customerIDLabel, passwordLabel;
+	private JTextField firstNameTextField, surnameTextField, pPSTextField, dOBTextField, customerIDTextField,
+			passwordTextField;
+	private Container content;
+	private Customer e;
+	private JPanel panel2;
+	private JButton add;
+	private String PPS, firstName, surname, DOB, CustomerID, password;
 
 	public static void main(String[] args) {
 		Menu driver = new Menu();
