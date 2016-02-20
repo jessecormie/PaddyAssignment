@@ -1,5 +1,3 @@
-//testing change
-
 public class AccountTransaction {
 
 	String date;
