@@ -8,9 +8,7 @@ public class CustomerAccount {
 
 	// Blank Constructor
 	public CustomerAccount() {
-		this.number = "";
-		this.balance = 0;
-		this.transactionList = null;
+		
 	}
 
 	// Constructor with Details

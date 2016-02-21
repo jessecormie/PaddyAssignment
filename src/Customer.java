@@ -7,13 +7,7 @@ public class Customer {
 
 	// Blank constructor
 	public Customer() {
-		this.PPS = "";
-		this.surname = "";
-		this.firstName = "";
-		this.DOB = "";
-		this.customerID = "";
-		this.password = "";
-		this.accounts = null;
+
 	}
 
 	// Constructor with details
