@@ -80,10 +80,12 @@ public class Customer {
 		this.accounts = accounts;
 	}
 
+	@Override
 	public String toString() {
-		return "PPS number = " + this.PPS + "\n" + "Surname = " + this.surname + "\n" + "First Name = " + this.firstName
-				+ "\n" + "Date of Birth = " + this.DOB + "\n" + "Customer ID = " + this.customerID;
-
+		return "Customer [PPS=" + PPS + ", surname=" + surname + ", firstName=" + firstName + ", DOB=" + DOB
+				+ ", customerID=" + customerID + ", password=" + password + ", accounts=" + accounts + "]";
 	}
+
+	
 
 }

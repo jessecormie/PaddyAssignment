@@ -24,7 +24,7 @@ import javax.swing.SwingConstants;
 
 public class Menu extends JFrame {
 
-	private ArrayList<Customer> customerList;
+	private ArrayList<Customer> customerList = new ArrayList<Customer>();
 	private int position = 0;
 	private Customer customer = null;
 	private CustomerAccount acc;
@@ -38,20 +38,14 @@ public class Menu extends JFrame {
 	private JButton add, cancel;
 	private String PPS, firstName, surname, DOB, CustomerID, password;
 	private JRadioButton radioButton;
-
+	private JComboBox<String> box;
+	
 	public static void main(String[] args) {
 		Menu driver = new Menu();
 		driver.menuStart();
 	}
 
 	public void menuStart() {
-		/*
-		 * The menuStart method asks the user if they are a new customer, an
-		 * existing customer or an admin. It will then start the create customer
-		 * process if they are a new customer, or will ask them to log in if
-		 * they are an existing customer or admin.
-		 */
-
 		f = new JFrame("User Type");
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
@@ -86,9 +80,9 @@ public class Menu extends JFrame {
 				String user = userType.getSelection().getActionCommand();
 				if (user.equals("New Customer")) {
 					newCustomer();
-				} else if (user.equals("Administration")) {
+				} else if (user.equals("Administrator")) {
 					administrator();
-				} else if (user.equals("New Customer")) {
+				} else if (user.equals("Customer")) {
 					customer();
 				}
 			}
@@ -990,15 +984,14 @@ public class Menu extends JFrame {
 		});
 	}
 
-	public void customer(Customer e1) {
+	public void customer(final Customer customer) {
 		f = new JFrame("Customer Menu");
-		e1 = e;
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
 		closeWindow();
 		f.setVisible(true);
 
-		if (e.getAccounts().size() == 0) {
+		if (customer.getAccounts().size() == 0) {
 			JOptionPane.showMessageDialog(f,
 					"This customer does not have any accounts yet. \n An admin must create an account for this customer \n for them to be able to use customer functionality. ",
 					"Oops!", JOptionPane.INFORMATION_MESSAGE);
@@ -1017,16 +1010,12 @@ public class Menu extends JFrame {
 			JButton continueButton = new JButton("Continue");
 			buttonPanel.add(continueButton);
 
-			JComboBox<String> box = new JComboBox<String>();
-			for (int i = 0; i < e.getAccounts().size(); i++) {
-				box.addItem(e.getAccounts().get(i).getNumber());
+			box = new JComboBox<String>();
+			for (int i = 0; i < customer.getAccounts().size(); i++) {
+				box.addItem(customer.getAccounts().get(i).getNumber());
 			}
 
-			for (int i = 0; i < e.getAccounts().size(); i++) {
-				if (e.getAccounts().get(i).getNumber() == box.getSelectedItem()) {
-					acc = e.getAccounts().get(i);
-				}
-			}
+			
 
 			boxPanel.add(box);
 			content = f.getContentPane();
@@ -1045,7 +1034,13 @@ public class Menu extends JFrame {
 			continueButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
 
-					f.dispose();
+					// f.dispose();
+					for (int i = 0; i < customer.getAccounts().size(); i++) {
+						if (customer.getAccounts().get(i).getNumber() == box.getSelectedItem()) {
+							System.out.println(customer.getAccounts().get(i));
+							acc = customer.getAccounts().get(i);
+						}
+					}
 
 					f = new JFrame("Customer Menu");
 					f.setSize(400, 300);
@@ -1125,7 +1120,7 @@ public class Menu extends JFrame {
 							returnButton.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent ae) {
 									f.dispose();
-									customer(e);
+									customer(customer);
 								}
 							});
 						}
@@ -1377,7 +1372,6 @@ public class Menu extends JFrame {
 
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				PPS = pPSTextField.getText();
 				firstName = firstNameTextField.getText();
 				surname = surnameTextField.getText();
@@ -1400,18 +1394,18 @@ public class Menu extends JFrame {
 								JOptionPane.OK_OPTION);
 					} else {
 						loop = false;
+						ArrayList<CustomerAccount> accounts = new ArrayList<CustomerAccount>();
+						Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
+						System.out.println("Test" + customer.toString());
+						customerList.add(customer);
+
+						JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID + "\n Password = " + password,
+								"Customer created.", JOptionPane.INFORMATION_MESSAGE);
+						menuStart();
 					}
 				}
 
-				ArrayList<CustomerAccount> accounts = new ArrayList<CustomerAccount>();
-				Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
-
-				customerList.add(customer);
-
-				JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID + "\n Password = " + password,
-						"Customer created.", JOptionPane.INFORMATION_MESSAGE);
-				menuStart();
-				f.dispose();
+				// f.dispose();
 			}
 		});
 
@@ -1434,28 +1428,28 @@ public class Menu extends JFrame {
 	public void administrator() {
 		boolean loop = true, loop2 = true;
 		boolean cont = false;
-		while (loop) {
-			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
+		// while (loop) {
+		Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
 
-			if (!adminUsername.equals("admin"))// search admin list
-												// for admin with
-												// matching admin
-												// username
-			{
-				int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Username. Try again?",
-						JOptionPane.YES_NO_OPTION);
-				if (reply == JOptionPane.YES_OPTION) {
-					loop = true;
-				} else if (reply == JOptionPane.NO_OPTION) {
-					f1.dispose();
-					loop = false;
-					loop2 = false;
-					menuStart();
-				}
-			} else {
+		if (!adminUsername.equals("admin"))// search admin list
+											// for admin with
+											// matching admin
+											// username
+		{
+			int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Username. Try again?",
+					JOptionPane.YES_NO_OPTION);
+			if (reply == JOptionPane.YES_OPTION) {
+				loop = true;
+			} else if (reply == JOptionPane.NO_OPTION) {
+				f1.dispose();
 				loop = false;
+				loop2 = false;
+				menuStart();
 			}
+		} else {
+			loop = false;
 		}
+		// }
 
 		while (loop2) {
 			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
@@ -1483,7 +1477,7 @@ public class Menu extends JFrame {
 		}
 
 		if (cont) {
-			f1.dispose();
+			// f1.dispose();
 			loop = false;
 			admin();
 		}
@@ -1559,6 +1553,7 @@ public class Menu extends JFrame {
 		if (cont) {
 			f.dispose();
 			loop = false;
+			System.out.println("Test4 " + customer.toString());
 			customer(customer);
 		}
 
