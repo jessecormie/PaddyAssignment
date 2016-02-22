@@ -35,7 +35,7 @@ public class Menu extends JFrame {
 	private Container content;
 	private Customer e;
 	private JPanel panel2;
-	private JButton add;
+	private JButton add, cancel;
 	private String PPS, firstName, surname, DOB, CustomerID, password;
 	private JRadioButton radioButton;
 
@@ -1382,52 +1382,46 @@ public class Menu extends JFrame {
 				firstName = firstNameTextField.getText();
 				surname = surnameTextField.getText();
 				DOB = dOBTextField.getText();
-				// password = "";
-
 				CustomerID = "ID" + PPS;
 
-				add.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						f1.dispose();
+				f1.dispose();
 
-						boolean loop = true;
-						while (loop) {
-							password = JOptionPane.showInputDialog(f, "Enter 7 character Password;");
+				boolean loop = true;
+				while (loop) {
+					password = JOptionPane.showInputDialog(f, "Enter 7 character Password;");
 
-							if (password.length() != 7)// Making
-														// sure
-														// password
-														// is 7
-														// characters
-							{
-								JOptionPane.showMessageDialog(null, null, "Password must be 7 charatcers long",
-										JOptionPane.OK_OPTION);
-							} else {
-								loop = false;
-							}
-						}
-
-						ArrayList<CustomerAccount> accounts = new ArrayList<CustomerAccount>();
-						Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
-
-						customerList.add(customer);
-
-						JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID + "\n Password = " + password,
-								"Customer created.", JOptionPane.INFORMATION_MESSAGE);
-						menuStart();
-						f.dispose();
+					if (password.length() != 7)// Making
+												// sure
+												// password
+												// is 7
+												// characters
+					{
+						JOptionPane.showMessageDialog(null, null, "Password must be 7 charatcers long",
+								JOptionPane.OK_OPTION);
+					} else {
+						loop = false;
 					}
-				});
+				}
+
+				ArrayList<CustomerAccount> accounts = new ArrayList<CustomerAccount>();
+				Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
+
+				customerList.add(customer);
+
+				JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID + "\n Password = " + password,
+						"Customer created.", JOptionPane.INFORMATION_MESSAGE);
+				menuStart();
+				f.dispose();
 			}
 		});
-		JButton cancel = new JButton("Cancel");
+
+		cancel = new JButton("Cancel");
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				f1.dispose();
 				menuStart();
 			}
 		});
-
 		panel2.add(add);
 		panel2.add(cancel);
 
@@ -1569,4 +1563,5 @@ public class Menu extends JFrame {
 		}
 
 	}
+
 }
