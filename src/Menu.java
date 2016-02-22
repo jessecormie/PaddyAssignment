@@ -9,7 +9,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Date;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -55,11 +54,7 @@ public class Menu extends JFrame {
 		f = new JFrame("User Type");
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
-		f.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent we) {
-				System.exit(0);
-			}
-		});
+		closeWindow();
 
 		JPanel userTypePanel = new JPanel();
 		final ButtonGroup userType = new ButtonGroup();
@@ -96,11 +91,8 @@ public class Menu extends JFrame {
 					f1 = new JFrame("Create New Customer");
 					f1.setSize(400, 300);
 					f1.setLocation(200, 200);
-					f1.addWindowListener(new WindowAdapter() {
-						public void windowClosing(WindowEvent we) {
-							System.exit(0);
-						}
-					});
+					closeWindow();
+					
 					Container content = f1.getContentPane();
 					content.setLayout(new BorderLayout());
 
@@ -132,7 +124,7 @@ public class Menu extends JFrame {
 							firstName = firstNameTextField.getText();
 							surname = surnameTextField.getText();
 							DOB = dOBTextField.getText();
-							password = "";
+							//password = "";
 
 							CustomerID = "ID" + PPS;
 
@@ -338,11 +330,7 @@ public class Menu extends JFrame {
 		f = new JFrame("Administrator Menu");
 		f.setSize(400, 400);
 		f.setLocation(200, 200);
-		f.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent we) {
-				System.exit(0);
-			}
-		});
+		closeWindow();
 		f.setVisible(true);
 
 		JPanel deleteCustomerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -408,7 +396,6 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent ae) {
 
 				boolean loop = true;
-
 				boolean found = false;
 
 				if (customerList.isEmpty()) {
@@ -447,11 +434,8 @@ public class Menu extends JFrame {
 							f = new JFrame("Administrator Menu");
 							f.setSize(400, 300);
 							f.setLocation(200, 200);
-							f.addWindowListener(new WindowAdapter() {
-								public void windowClosing(WindowEvent we) {
-									System.exit(0);
-								}
-							});
+							closeWindow();
+							
 							f.setVisible(true);
 
 							JComboBox<String> box = new JComboBox<String>();
@@ -577,11 +561,7 @@ public class Menu extends JFrame {
 							f = new JFrame("Administrator Menu");
 							f.setSize(400, 300);
 							f.setLocation(200, 200);
-							f.addWindowListener(new WindowAdapter() {
-								public void windowClosing(WindowEvent we) {
-									System.exit(0);
-								}
-							});
+							closeWindow();
 							f.setVisible(true);
 
 							JComboBox<String> box = new JComboBox<String>();
@@ -732,11 +712,7 @@ public class Menu extends JFrame {
 					f = new JFrame("Administrator Menu");
 					f.setSize(400, 300);
 					f.setLocation(200, 200);
-					f.addWindowListener(new WindowAdapter() {
-						public void windowClosing(WindowEvent we) {
-							System.exit(0);
-						}
-					});
+					closeWindow();
 
 					firstNameLabel = new JLabel("First Name:", SwingConstants.LEFT);
 					surnameLabel = new JLabel("Surname:", SwingConstants.LEFT);
@@ -827,11 +803,7 @@ public class Menu extends JFrame {
 				f = new JFrame("Summary of Transactions");
 				f.setSize(400, 700);
 				f.setLocation(200, 200);
-				f.addWindowListener(new WindowAdapter() {
-					public void windowClosing(WindowEvent we) {
-						System.exit(0);
-					}
-				});
+				closeWindow();
 				f.setVisible(true);
 
 				JLabel label1 = new JLabel("Summary of all transactions: ");
@@ -1251,11 +1223,7 @@ public class Menu extends JFrame {
 		e1 = e;
 		f.setSize(400, 300);
 		f.setLocation(200, 200);
-		f.addWindowListener(new WindowAdapter() {
-			public void windowClosing(WindowEvent we) {
-				System.exit(0);
-			}
-		});
+		closeWindow();
 		f.setVisible(true);
 
 		if (e.getAccounts().size() == 0) {
@@ -1310,11 +1278,7 @@ public class Menu extends JFrame {
 					f = new JFrame("Customer Menu");
 					f.setSize(400, 300);
 					f.setLocation(200, 200);
-					f.addWindowListener(new WindowAdapter() {
-						public void windowClosing(WindowEvent we) {
-							System.exit(0);
-						}
-					});
+					closeWindow();
 					f.setVisible(true);
 
 					JPanel statementPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -1353,11 +1317,7 @@ public class Menu extends JFrame {
 							f = new JFrame("Customer Menu");
 							f.setSize(400, 600);
 							f.setLocation(200, 200);
-							f.addWindowListener(new WindowAdapter() {
-								public void windowClosing(WindowEvent we) {
-									System.exit(0);
-								}
-							});
+							closeWindow();
 							f.setVisible(true);
 
 							JLabel label1 = new JLabel("Summary of account transactions: ");
@@ -1388,9 +1348,7 @@ public class Menu extends JFrame {
 
 							Container content = f.getContentPane();
 							content.setLayout(new GridLayout(1, 1));
-							// content.add(label1);
 							content.add(textPanel);
-							// content.add(returnPanel);
 
 							returnButton.addActionListener(new ActionListener() {
 								public void actionPerformed(ActionEvent ae) {
@@ -1566,9 +1524,6 @@ public class Menu extends JFrame {
 
 								String euro = "\u20ac";
 								acc.setBalance(acc.getBalance() - withdraw);
-								// recording transaction:
-								// String date = new
-								// SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
 								Date date = new Date();
 								String date2 = date.toString();
 
@@ -1607,5 +1562,14 @@ public class Menu extends JFrame {
 			return false;
 		}
 		return true;
+	}
+	
+	public void closeWindow(){
+		f.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent we) {
+				System.exit(0);
+			}
+		});
+		
 	}
 }

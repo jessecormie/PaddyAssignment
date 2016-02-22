@@ -4,7 +4,7 @@ public class ATMCard {
 	private boolean valid;
 
 	public ATMCard() {
-		this.pin = 0000;
+		
 	}
 
 	public ATMCard(int pin, boolean valid) {
