@@ -9,6 +9,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Date;
+
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -223,8 +224,7 @@ public class Menu extends JFrame {
 			JOptionPane.showMessageDialog(f,
 					"This customer does not have any accounts yet. \n An admin must create an account for this customer \n for them to be able to use customer functionality. ",
 					"Oops!", JOptionPane.INFORMATION_MESSAGE);
-			f.dispose();
-			menuStart();
+			returnToMenu();
 		} else {
 			JPanel buttonPanel = new JPanel();
 			JPanel boxPanel = new JPanel();
@@ -356,7 +356,7 @@ public class Menu extends JFrame {
 
 		Container content = f1.getContentPane();
 		content.setLayout(new BorderLayout());
-
+//TODO dup 1.1
 		firstNameLabel = new JLabel("First Name:", SwingConstants.RIGHT);
 		surnameLabel = new JLabel("Surname:", SwingConstants.RIGHT);
 		pPPSLabel = new JLabel("PPS Number:", SwingConstants.RIGHT);
@@ -794,20 +794,20 @@ public class Menu extends JFrame {
 			f.setSize(400, 300);
 			f.setLocation(200, 200);
 			closeWindow();
-
+//TODO dup 1.2
 			firstNameLabel = new JLabel("First Name:", SwingConstants.LEFT);
 			surnameLabel = new JLabel("Surname:", SwingConstants.LEFT);
 			pPPSLabel = new JLabel("PPS Number:", SwingConstants.LEFT);
 			dOBLabel = new JLabel("Date of birth", SwingConstants.LEFT);
-			customerIDLabel = new JLabel("CustomerID:", SwingConstants.LEFT);
-			passwordLabel = new JLabel("Password:", SwingConstants.LEFT);
+			customerIDLabel = new JLabel("CustomerID:", SwingConstants.LEFT);//not dup
+			passwordLabel = new JLabel("Password:", SwingConstants.LEFT);//not dup
 			firstNameTextField = new JTextField(20);
 			surnameTextField = new JTextField(20);
 			pPSTextField = new JTextField(20);
 			dOBTextField = new JTextField(20);
-			customerIDTextField = new JTextField(20);
-			passwordTextField = new JTextField(20);
-
+			customerIDTextField = new JTextField(20);//not dup
+			passwordTextField = new JTextField(20);//not dup
+//end of dup
 			JPanel textPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
 			JPanel cancelPanel = new JPanel();
@@ -930,7 +930,7 @@ public class Menu extends JFrame {
 			buttonPanel = new JPanel();
 			gridPanel = new JPanel(new GridLayout(8, 2));
 			cancelPanel = new JPanel();
-
+//TODO dup 1.3
 			firstNameLabel = new JLabel("First Name:", SwingConstants.LEFT);
 			surnameLabel = new JLabel("Surname:", SwingConstants.LEFT);
 			pPPSLabel = new JLabel("PPS Number:", SwingConstants.LEFT);
@@ -943,13 +943,13 @@ public class Menu extends JFrame {
 			dOBTextField = new JTextField(20);
 			customerIDTextField = new JTextField(20);
 			passwordTextField = new JTextField(20);
-
+//end dup
 			first = new JButton("First");
 			previous = new JButton("Previous");
 			next = new JButton("Next");
 			last = new JButton("Last");
 			cancel = new JButton("Cancel");
-
+//TODO dup 2.1
 			firstNameTextField.setText(customerList.get(0).getFirstName());
 			surnameTextField.setText(customerList.get(0).getSurname());
 			pPSTextField.setText(customerList.get(0).getPPS());
@@ -1180,7 +1180,7 @@ public class Menu extends JFrame {
 
 					admin();
 				}
-			} 
+			}
 		}
 	}
 
@@ -1410,7 +1410,7 @@ public class Menu extends JFrame {
 			}
 		}
 	}
-
+//TODO replicated code
 	public void saveCustomer() {
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
@@ -1429,6 +1429,7 @@ public class Menu extends JFrame {
 
 	public void first() {
 		position = 0;
+//TODO dup 2.2	
 		firstNameTextField.setText(customerList.get(0).getFirstName());
 		surnameTextField.setText(customerList.get(0).getSurname());
 		pPSTextField.setText(customerList.get(0).getPPS());
@@ -1442,7 +1443,7 @@ public class Menu extends JFrame {
 			// don't do anything
 		} else {
 			position = position - 1;
-
+//TODO dup 3.1
 			firstNameTextField.setText(customerList.get(position).getFirstName());
 			surnameTextField.setText(customerList.get(position).getSurname());
 			pPSTextField.setText(customerList.get(position).getPPS());
@@ -1457,7 +1458,7 @@ public class Menu extends JFrame {
 			// don't do anything
 		} else {
 			position = position + 1;
-
+//TODO dup 3.2
 			firstNameTextField.setText(customerList.get(position).getFirstName());
 			surnameTextField.setText(customerList.get(position).getSurname());
 			pPSTextField.setText(customerList.get(position).getPPS());
@@ -1466,9 +1467,10 @@ public class Menu extends JFrame {
 			passwordTextField.setText(customerList.get(position).getPassword());
 		}
 	}
-	
-	public void last(){
+//TODO put into a class and get rid of repetitiveness 
+	public void last() {
 		position = customerList.size() - 1;
+//TODO dup 3.3		
 		firstNameTextField.setText(customerList.get(position).getFirstName());
 		surnameTextField.setText(customerList.get(position).getSurname());
 		pPSTextField.setText(customerList.get(position).getPPS());
