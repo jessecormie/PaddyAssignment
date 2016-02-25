@@ -14,17 +14,13 @@ import javax.swing.JPanel;
 
 public class Admin {
 
-	AdminFunctionality af;
 	Menu menu = new Menu();
 	private ArrayList<Customer> customerList;
 	private JFrame f, f1;
 	private Container content;
 
 	public void login(ArrayList<Customer> passedCustomerList) {
-		System.out.println("testing " + passedCustomerList.toString());
-		//passedCustomerList = customerList;
 		this.customerList = passedCustomerList;
-		System.out.println("Testing5: " + customerList.toString());
 		boolean loop = true, loop2 = true;
 		boolean cont = false;
 		while (loop) {
@@ -70,11 +66,9 @@ public class Admin {
 	}
 
 	public void admin() {
-	//	menu.dispose();
 		f = new JFrame("Administrator Menu");
 		f.setSize(400, 400);
 		f.setLocation(200, 200);
-	//	menu.closeWindow();
 		f.setVisible(true);
 
 		JPanel deleteCustomerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -176,19 +170,21 @@ public class Admin {
 				a.account(customerList);
 			}
 		});
-//
-//		deleteCustomer.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent ae) {
-//				af.deleteCustomer();
-//			}
-//		});
-//
-//		deleteAccount.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent ae) {
-//				af.deleteAccount();
-//			}
-//
-//		});
+
+		deleteCustomer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				DeleteCustomer dc = new DeleteCustomer();
+				dc.deleteCustomer(customerList);
+			}
+		});
+
+		deleteAccount.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				DeleteAccount da = new DeleteAccount();
+				da.deleteAccount(customerList);
+			}
+
+		});
 		returnButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				f.dispose();

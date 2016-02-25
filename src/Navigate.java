@@ -25,8 +25,7 @@ public class Navigate {
 	public void navigate(final ArrayList<Customer> customerList) {
 		this.customerList = customerList;
 		if (customerList.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "There are currently no customers to display. ");
-			f.dispose();
+			JOptionPane.showMessageDialog(null, "There are currently no customers to display");
 		} else {
 			JButton first, previous, next, last, cancel;
 			JPanel gridPanel, buttonPanel, cancelPanel;
@@ -125,7 +124,8 @@ public class Navigate {
 
 			cancel.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
-					f.dispose();
+					Admin a = new Admin();
+					a.admin();
 				}
 			});
 			menu.setContentPane(content);
