@@ -16,7 +16,6 @@ public class Summary {
 
 	private CustomerAccount acc;
 	private JFrame f;
-	private Container content;
 	
 	public void summary(ArrayList<Customer> customerList) {
 		f = new JFrame("Summary of Transactions");
@@ -53,7 +52,6 @@ public class Summary {
 		}
 
 		textPanel.add(textArea);
-		content.removeAll();
 
 		Container content = f.getContentPane();
 		content.setLayout(new GridLayout(1, 1));

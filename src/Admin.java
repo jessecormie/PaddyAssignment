@@ -163,11 +163,12 @@ public class Admin {
 			}
 		});
 //
-//		navigateButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent ae) {
-//				af.navigate();
-//			}
-//		});
+		navigateButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				Navigate n = new Navigate();
+				n.navigate(customerList);
+			}
+		});
 //
 		accountButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {

@@ -574,57 +574,6 @@ public class Menu extends JFrame {
 //		admin.admin();
 	}
 
-	public void first() {
-		position = 0;
-		// TODO dup 2.2
-		firstNameTextField.setText(customerList.get(0).getFirstName());
-		surnameTextField.setText(customerList.get(0).getSurname());
-		pPSTextField.setText(customerList.get(0).getPPS());
-		dOBTextField.setText(customerList.get(0).getDOB());
-		customerIDTextField.setText(customerList.get(0).getCustomerID());
-		passwordTextField.setText(customerList.get(0).getPassword());
-	}
 
-	public void previous() {
-		if (position < 1) {
-			// don't do anything
-		} else {
-			position = position - 1;
-			// TODO dup 3.1
-			firstNameTextField.setText(customerList.get(position).getFirstName());
-			surnameTextField.setText(customerList.get(position).getSurname());
-			pPSTextField.setText(customerList.get(position).getPPS());
-			dOBTextField.setText(customerList.get(position).getDOB());
-			customerIDTextField.setText(customerList.get(position).getCustomerID());
-			passwordTextField.setText(customerList.get(position).getPassword());
-		}
-	}
-
-	public void next() {
-		if (position == customerList.size() - 1) {
-			// don't do anything
-		} else {
-			position = position + 1;
-			// TODO dup 3.2
-			firstNameTextField.setText(customerList.get(position).getFirstName());
-			surnameTextField.setText(customerList.get(position).getSurname());
-			pPSTextField.setText(customerList.get(position).getPPS());
-			dOBTextField.setText(customerList.get(position).getDOB());
-			customerIDTextField.setText(customerList.get(position).getCustomerID());
-			passwordTextField.setText(customerList.get(position).getPassword());
-		}
-	}
-
-	// TODO put into a class and get rid of repetitiveness
-	public void last() {
-		position = customerList.size() - 1;
-		// TODO dup 3.3
-		firstNameTextField.setText(customerList.get(position).getFirstName());
-		surnameTextField.setText(customerList.get(position).getSurname());
-		pPSTextField.setText(customerList.get(position).getPPS());
-		dOBTextField.setText(customerList.get(position).getDOB());
-		customerIDTextField.setText(customerList.get(position).getCustomerID());
-		passwordTextField.setText(customerList.get(position).getPassword());
-	}
 	
 }
