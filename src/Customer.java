@@ -2,26 +2,26 @@ import java.util.ArrayList;
 
 public class Customer {
 
-	private String PPS, surname, firstName, DOB, customerID, password;
+	private String pps, surname, firstName, dob, customerID, password;
 	private ArrayList<CustomerAccount> accounts;
 
 	public Customer() {
 
 	}
 
-	public Customer(String PPS, String surname, String firstName, String DOB, String customerID, String password,
+	public Customer(String pps, String surname, String firstName, String dob, String customerID, String password,
 			ArrayList<CustomerAccount> accounts) {
-		this.PPS = PPS;
+		this.pps = pps;
 		this.surname = surname;
 		this.firstName = firstName;
-		this.DOB = DOB;
+		this.dob = dob;
 		this.customerID = customerID;
 		this.password = password;
 		this.accounts = accounts;
 	}
 
-	public String getPPS() {
-		return this.PPS;
+	public String getPps() {
+		return this.pps;
 	}
 
 	public String getSurname() {
@@ -32,8 +32,8 @@ public class Customer {
 		return this.firstName;
 	}
 
-	public String getDOB() {
-		return this.DOB;
+	public String getDob() {
+		return this.dob;
 	}
 
 	public String getCustomerID() {
@@ -48,8 +48,8 @@ public class Customer {
 		return this.accounts;
 	}
 
-	public void setPPS(String PPS) {
-		this.PPS = PPS;
+	public void setPps(String pps) {
+		this.pps = pps;
 	}
 
 	public void setSurname(String surname) {
@@ -60,8 +60,8 @@ public class Customer {
 		this.firstName = firstName;
 	}
 
-	public void setDOB(String DOB) {
-		this.DOB = DOB;
+	public void setDob(String dob) {
+		this.dob = dob;
 	}
 
 	public void setCustomerID(String customerID) {
@@ -78,10 +78,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [PPS=" + PPS + ", surname=" + surname + ", firstName=" + firstName + ", DOB=" + DOB
+		return "Customer [PPS=" + pps + ", surname=" + surname + ", firstName=" + firstName + ", DOB=" + dob
 				+ ", customerID=" + customerID + ", password=" + password + ", accounts=" + accounts + "]";
 	}
-
-	
-
 }

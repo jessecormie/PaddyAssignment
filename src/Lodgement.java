@@ -7,14 +7,15 @@ public class Lodgement {
 
 	private JFrame f;
 	int count = 3;
-	private CustomerAccount acc;
 	private double balance;
-
+	
 	public void lodgement(CustomerAccount acc) {
-		this.acc = acc;
 		if (acc instanceof CustomerCurrentAccount) {
 			CheckPin cp = new CheckPin();
 			cp.checkPin(acc);
+			if (true) {
+				lodgeMoney(acc);
+			}
 		} else {
 			lodgeMoney(acc);
 		}

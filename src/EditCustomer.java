@@ -72,8 +72,8 @@ public class EditCustomer {
 
 		firstNameTextField.setText(customer.getFirstName());
 		surnameTextField.setText(customer.getSurname());
-		ppsTextField.setText(customer.getPPS());
-		dobTextField.setText(customer.getDOB());
+		ppsTextField.setText(customer.getPps());
+		dobTextField.setText(customer.getDob());
 
 		JButton saveButton = new JButton("Save");
 		JButton cancelButton = new JButton("Exit");
@@ -108,8 +108,8 @@ public class EditCustomer {
 		this.customer = customer;
 		customer.setFirstName(firstNameTextField.getText());
 		customer.setSurname(surnameTextField.getText());
-		customer.setPPS(ppsTextField.getText());
-		customer.setDOB(dobTextField.getText());
+		customer.setPps(ppsTextField.getText());
+		customer.setDob(dobTextField.getText());
 
 		for (Customer aCustomer : customerList) {
 			if (aCustomer.getCustomerID().equals(customerID)) {

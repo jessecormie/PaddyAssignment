@@ -135,8 +135,8 @@ public class Navigate {
 	public void getUser(int position) {
 		firstNameTextField.setText(customerList.get(position).getFirstName());
 		surnameTextField.setText(customerList.get(position).getSurname());
-		pPSTextField.setText(customerList.get(position).getPPS());
-		dOBTextField.setText(customerList.get(position).getDOB());
+		pPSTextField.setText(customerList.get(position).getPps());
+		dOBTextField.setText(customerList.get(position).getDob());
 		customerIDTextField.setText(customerList.get(position).getCustomerID());
 		passwordTextField.setText(customerList.get(position).getPassword());
 	}

@@ -5,8 +5,9 @@ public class CheckPin {
 	
 	private JFrame f;
 	int count = 3;
+	private boolean success = false;
 	
-	public void checkPin(CustomerAccount acc){
+	public boolean checkPin(CustomerAccount acc){
 		int checkPin = ((CustomerCurrentAccount) acc).getAtm().getPin();
 		if (count == 0) {
 			JOptionPane.showMessageDialog(f, "Pin entered incorrectly 3 times. ATM card locked.", "Pin",
@@ -17,8 +18,7 @@ public class CheckPin {
 			int i = Integer.parseInt(Pin);
 			if (checkPin == i) {
 				JOptionPane.showMessageDialog(f, "Pin entry successful", "Pin", JOptionPane.INFORMATION_MESSAGE);
-				Lodgement l = new Lodgement();
-				l.lodgeMoney(acc);
+				success = true;
 			} else {
 				count--;
 				JOptionPane.showMessageDialog(f, "Incorrect pin. " + count + " attempts remaining.", "Pin",
@@ -27,6 +27,7 @@ public class CheckPin {
 				l.lodgement(acc);
 			}
 		}
+		return success;
 	}
 
 }
