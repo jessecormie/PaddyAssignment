@@ -14,6 +14,7 @@ import Entity.Customer;
 import Entity.CustomerAccount;
 import Entity.CustomerCurrentAccount;
 import Entity.CustomerDepositAccount;
+import JFrame.SetJFrame;
 
 public class BankCharges {
 
@@ -43,12 +44,10 @@ public class BankCharges {
 		}
 	}
 
-	public void adminMenu(Customer customer) {
-		f = new JFrame("Administrator Menu");
-		f.setSize(400, 300);
-		f.setLocation(200, 200);
-		f.setVisible(true);
-
+	public void adminMenu(Customer customer) {		
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Administrator Menu", 400, 300, 200,200, true);
+	
 		JComboBox<String> box = new JComboBox<String>();
 		for (int i = 0; i < customer.getAccounts().size(); i++) {
 			box.addItem(customer.getAccounts().get(i).getNumber());

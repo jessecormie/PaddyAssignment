@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Entity.Customer;
+import JFrame.SetJFrame;
 
 public class Admin {
 
@@ -43,12 +44,10 @@ public class Admin {
 		}
 	}
 
-	public void admin() {
-		f = new JFrame("Administrator Menu");
-		f.setSize(400, 400);
-		f.setLocation(200, 200);
-		f.setVisible(true);
-
+	public void admin() {	
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Administrator Menu", 400, 400, 200,200, true);
+		
 		JPanel deleteCustomerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton deleteCustomer = new JButton("Delete Customer");
 		deleteCustomer.setPreferredSize(new Dimension(250, 20));

@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 
 import Entity.Customer;
 import Entity.CustomerAccount;
+import JFrame.SetJFrame;
 
 public class Summary {
 
@@ -22,10 +23,8 @@ public class Summary {
 	private JFrame f;
 	
 	public void summary(ArrayList<Customer> customerList) {
-		f = new JFrame("Summary of Transactions");
-		f.setSize(400, 700);
-		f.setLocation(200, 200);
-		f.setVisible(true);
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Summary of Transactions", 400, 700, 200,200, true);
 
 		JLabel label1 = new JLabel("Summary of all transactions: ");
 

@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 
 import Entity.Customer;
 import Entity.CustomerAccount;
+import JFrame.SetJFrame;
 import Main.Menu;
 
 public class Interest {
@@ -46,10 +47,8 @@ public class Interest {
 	}
 
 	public void adminMenu(Customer customer) {
-		f = new JFrame("Administrator Menu");
-		f.setSize(400, 300);
-		f.setLocation(200, 200);
-		f.setVisible(true);
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Administrator Menu", 400, 300, 200,200, true);
 
 		JComboBox<String> box = new JComboBox<String>();
 		for (int i = 0; i < customer.getAccounts().size(); i++) {

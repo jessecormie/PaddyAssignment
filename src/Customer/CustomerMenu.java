@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 
 import Entity.Customer;
 import Entity.CustomerAccount;
+import JFrame.SetJFrame;
 
 public class CustomerMenu {
 	
@@ -24,10 +25,8 @@ public class CustomerMenu {
 	private JComboBox<String> box;
 	
 	public void customer(final Customer customer) {
-		f = new JFrame("Customer Menu");
-		f.setSize(400, 300);
-		f.setLocation(200, 200);
-		f.setVisible(true);
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Customer Menu", 400, 300, 200,200, true);
 		
 		if (customer.getAccounts().size() == 0) {
 			JOptionPane.showMessageDialog(f,
@@ -61,6 +60,7 @@ public class CustomerMenu {
 
 			returnButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
+					System.out.println("here");
 					f.dispose();
 				}
 			});

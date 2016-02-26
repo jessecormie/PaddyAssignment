@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 
 import Entity.Customer;
 import Entity.CustomerAccount;
+import JFrame.SetJFrame;
 
 public class RegisterCustomer {
 
@@ -28,10 +29,9 @@ public class RegisterCustomer {
 	private String pps, firstName, surname, dob, customerID, password;
 
 	public void newCustomer(final ArrayList<Customer> customerList) {
-		this.customerList = customerList;
-		f1 = new JFrame("Create New Customer");
-		f1.setSize(400, 300);
-		f1.setLocation(200, 200);
+		this.customerList = customerList;	
+		SetJFrame sj = new SetJFrame();
+		f1 = sj.setJFrame("Create New Customer", 400, 300, 200,200, true);
 
 		Container content = f1.getContentPane();
 		content.setLayout(new BorderLayout());
@@ -75,7 +75,6 @@ public class RegisterCustomer {
 		content.add(panel, BorderLayout.CENTER);
 		content.add(panel2, BorderLayout.SOUTH);
 
-		f1.setVisible(true);
 	}
 
 	public void add() {

@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import Entity.Customer;
+import JFrame.SetJFrame;
 
 public class EditCustomer {
 
@@ -48,9 +49,8 @@ public class EditCustomer {
 	}
 
 	public void adminMenu() {
-		f = new JFrame("Administrator Menu");
-		f.setSize(600, 300);
-		f.setLocation(200, 200);
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Administrator Menu", 600, 300, 200,200, true);
 
 		firstNameLabel = new JLabel("First Name:", SwingConstants.LEFT);
 		surnameLabel = new JLabel("Surname:", SwingConstants.LEFT);

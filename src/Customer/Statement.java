@@ -13,16 +13,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import Entity.CustomerAccount;
+import JFrame.SetJFrame;
 
 public class Statement {
 
 	private JFrame f;
 
 	public void statement(CustomerAccount acc) {
-		f = new JFrame("Customer Menu");
-		f.setSize(400, 600);
-		f.setLocation(200, 200);
-		f.setVisible(true);
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("Customer Menu", 400, 600, 200,200, true);
 
 		JLabel label1 = new JLabel("Summary of account transactions: ");
 

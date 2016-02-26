@@ -15,6 +15,7 @@ import Administrator.Admin;
 import Customer.CustomerLogin;
 import Customer.RegisterCustomer;
 import Entity.Customer;
+import JFrame.SetJFrame;
 
 public class Menu extends JFrame {
 
@@ -28,10 +29,9 @@ public class Menu extends JFrame {
 		driver.menuStart();
 	}
 
-	public void menuStart() {
-		f = new JFrame("User Type");
-		f.setSize(400, 300);
-		f.setLocation(200, 200);
+	public void menuStart() {	
+		SetJFrame sj = new SetJFrame();
+		f = sj.setJFrame("User Type", 400, 300, 200,200, true);
 
 		JPanel userTypePanel = new JPanel();
 		final ButtonGroup userType = new ButtonGroup();
