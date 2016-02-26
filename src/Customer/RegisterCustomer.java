@@ -1,3 +1,4 @@
+package Customer;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -12,6 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import Entity.Customer;
+import Entity.CustomerAccount;
 
 public class RegisterCustomer {
 

@@ -1,3 +1,4 @@
+package Entity;
 public class AccountTransaction {
 
 	private String date, type;

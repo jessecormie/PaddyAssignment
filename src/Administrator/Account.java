@@ -1,7 +1,14 @@
+package Administrator;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import Entity.ATMCard;
+import Entity.AccountTransaction;
+import Entity.Customer;
+import Entity.CustomerCurrentAccount;
+import Entity.CustomerDepositAccount;
 
 public class Account {
 

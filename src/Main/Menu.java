@@ -1,3 +1,4 @@
+package Main;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,11 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+
+import Administrator.Admin;
+import Customer.CustomerLogin;
+import Customer.RegisterCustomer;
+import Entity.Customer;
 
 public class Menu extends JFrame {
 

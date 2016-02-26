@@ -1,3 +1,4 @@
+package Administrator;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,11 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import Entity.Customer;
+import Entity.CustomerAccount;
+import Entity.CustomerCurrentAccount;
+import Entity.CustomerDepositAccount;
 
 public class BankCharges {
 

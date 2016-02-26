@@ -1,3 +1,4 @@
+package Administrator;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -11,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import Entity.Customer;
+import Entity.CustomerAccount;
 
 public class Summary {
 

@@ -1,3 +1,4 @@
+package Administrator;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
@@ -11,6 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import Entity.Customer;
+import Main.Menu;
 
 public class Navigate {
 

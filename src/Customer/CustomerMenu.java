@@ -1,3 +1,4 @@
+package Customer;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -11,6 +12,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import Entity.Customer;
+import Entity.CustomerAccount;
 
 public class CustomerMenu {
 	
