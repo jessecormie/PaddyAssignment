@@ -60,7 +60,6 @@ public class CustomerMenu {
 
 			returnButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
-					System.out.println("here");
 					f.dispose();
 				}
 			});
