@@ -38,9 +38,7 @@ public class EditCustomer {
 							JOptionPane.YES_NO_OPTION);
 					if (reply == JOptionPane.YES_OPTION) {
 						editCustomer(customerList);
-					} else {
-						f.dispose();
-					}
+					} 
 				}
 			}
 		}

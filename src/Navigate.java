@@ -97,7 +97,7 @@ public class Navigate {
 
 			previous.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
-					if (position > 0) {
+					if (position != 0) {
 						position = position - 1;
 						getUser(position);
 					}
@@ -115,7 +115,7 @@ public class Navigate {
 
 			last.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent ae) {
-					int position = customerList.size() - 1;
+					position = customerList.size() - 1;
 					getUser(position);
 				}
 			});
