@@ -14,51 +14,34 @@ import javax.swing.JPanel;
 
 public class Admin {
 
-	Menu menu = new Menu();
 	private ArrayList<Customer> customerList;
 	private JFrame f, f1;
 	private Container content;
 
-	public void login(ArrayList<Customer> passedCustomerList) {
-		this.customerList = passedCustomerList;
+	public void login(ArrayList<Customer> customerList) {
+		this.customerList = customerList;
+		
 		boolean loop = true, loop2 = true;
 		boolean cont = false;
+		
 		while (loop) {
 			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
-
-			if (!adminUsername.equals("admin")) {
-				int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Username. Try again?",
+			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
+			if (!adminUsername.equals("admin") && !adminPassword.equals("admin11")) {
+				int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Details. Try again?",
 						JOptionPane.YES_NO_OPTION);
 				if (reply == JOptionPane.YES_OPTION) {
 					loop = true;
 				} else if (reply == JOptionPane.NO_OPTION) {
-					f1.dispose();
 					loop = false;
-					loop2 = false;
+					loop2 = false;					
 				}
 			} else {
 				loop = false;
-			}
-		}
-
-		while (loop2) {
-			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
-
-			if (!adminPassword.equals("admin11")) {
-				int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Password. Try again?",
-						JOptionPane.YES_NO_OPTION);
-				if (reply == JOptionPane.YES_OPTION) {
-
-				} else if (reply == JOptionPane.NO_OPTION) {
-					f1.dispose();
-					loop2 = false;
-				}
-			} else {
-				loop2 = false;
 				cont = true;
 			}
 		}
-
+		
 		if (cont) {
 			loop = false;
 			admin();
