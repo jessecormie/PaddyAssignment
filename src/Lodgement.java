@@ -13,34 +13,17 @@ public class Lodgement {
 	public void lodgement(CustomerAccount acc) {
 		this.acc = acc;
 		if (acc instanceof CustomerCurrentAccount) {
-			int checkPin = ((CustomerCurrentAccount) acc).getAtm().getPin();
-			if (count == 0) {
-				JOptionPane.showMessageDialog(f, "Pin entered incorrectly 3 times. ATM card locked.", "Pin",
-						JOptionPane.INFORMATION_MESSAGE);
-				((CustomerCurrentAccount) acc).getAtm().setValid(false);
-			} else {
-				String Pin = JOptionPane.showInputDialog(f, "Enter 4 digit PIN;");
-				int i = Integer.parseInt(Pin);
-				if (checkPin == i) {
-					JOptionPane.showMessageDialog(f, "Pin entry successful", "Pin", JOptionPane.INFORMATION_MESSAGE);
-					lodgeMoney();
-				} else {
-					count--;
-					JOptionPane.showMessageDialog(f, "Incorrect pin. " + count + " attempts remaining.", "Pin",
-							JOptionPane.INFORMATION_MESSAGE);
-					lodgement(acc);
-				}
-			}
+			CheckPin cp = new CheckPin();
+			cp.checkPin(acc);
 		} else {
-			lodgeMoney();
+			lodgeMoney(acc);
 		}
 	}
 
-	public void lodgeMoney() {
+	public void lodgeMoney(CustomerAccount acc) {
 		String balanceTest = JOptionPane.showInputDialog(f, "Enter amount you wish to lodge:");
 		if (Menu.isNumeric(balanceTest)) {
 			balance = Double.parseDouble(balanceTest);
-
 		} else {
 			JOptionPane.showMessageDialog(f, "You must enter a numerical value!", "Oops!",
 					JOptionPane.INFORMATION_MESSAGE);

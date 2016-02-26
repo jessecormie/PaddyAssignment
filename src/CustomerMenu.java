@@ -14,12 +14,10 @@ import javax.swing.JPanel;
 
 public class CustomerMenu {
 	
-
 	private CustomerAccount acc;
 	private JFrame f;
 	private Container content;
 	private JComboBox<String> box;
-	
 	
 	public void customer(final Customer customer) {
 		f = new JFrame("Customer Menu");
@@ -31,6 +29,7 @@ public class CustomerMenu {
 			JOptionPane.showMessageDialog(f,
 					"This customer does not have any accounts yet. \n An admin must create an account for this customer \n for them to be able to use customer functionality. ",
 					"Oops!", JOptionPane.INFORMATION_MESSAGE);
+			f.dispose();
 		} else {
 			JPanel buttonPanel = new JPanel();
 			JPanel boxPanel = new JPanel();
@@ -67,9 +66,7 @@ public class CustomerMenu {
 
 					for (int i = 0; i < customer.getAccounts().size(); i++) {
 						if (customer.getAccounts().get(i).getNumber() == box.getSelectedItem()) {
-							System.out.println(customer.getAccounts().get(i));
-							acc = customer.getAccounts().get(i);
-							
+							acc = customer.getAccounts().get(i);							
 						}
 					}
 
@@ -117,8 +114,10 @@ public class CustomerMenu {
 
 					lodgementButton.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent ae) {
+							System.out.println("test");
 							Lodgement l = new Lodgement();
 							l.lodgement(acc);
+							
 						}
 					});
 

@@ -8,8 +8,6 @@ public class Withdraw {
 	private JFrame f;
 
 	public void withdraw(CustomerAccount acc) {
-		boolean loop = true;
-		boolean on = true;
 		double withdraw = 0;
 
 		if (acc instanceof CustomerCurrentAccount) {
