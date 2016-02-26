@@ -40,7 +40,7 @@ public class Interest {
 		}
 	}
 
-	private void adminMenu(Customer customer) {
+	public void adminMenu(Customer customer) {
 		f = new JFrame("Administrator Menu");
 		f.setSize(400, 300);
 		f.setLocation(200, 200);

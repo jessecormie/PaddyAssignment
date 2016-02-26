@@ -35,10 +35,8 @@ public class Account {
 					if (reply == JOptionPane.YES_OPTION) {
 						loop = true;
 					} else if (reply == JOptionPane.NO_OPTION) {
-						f.dispose();
 						loop = false;
-						Admin admin = new Admin();
-						admin.admin();
+
 					}
 				} else {
 					loop = false;

@@ -62,7 +62,7 @@ public class RegisterCustomer {
 		cancel = new JButton("Cancel");
 		cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				f.dispose();
+				f1.dispose();
 			}
 		});
 		panel2.add(add);

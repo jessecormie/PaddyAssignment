@@ -15,15 +15,13 @@ import javax.swing.JPanel;
 public class Admin {
 
 	private ArrayList<Customer> customerList;
-	private JFrame f, f1;
+	private JFrame f;
 	private Container content;
 
 	public void login(ArrayList<Customer> customerList) {
 		this.customerList = customerList;
-		
-		boolean loop = true, loop2 = true;
-		boolean cont = false;
-		
+		boolean loop = true;
+
 		while (loop) {
 			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
 			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
@@ -34,17 +32,11 @@ public class Admin {
 					loop = true;
 				} else if (reply == JOptionPane.NO_OPTION) {
 					loop = false;
-					loop2 = false;					
 				}
 			} else {
 				loop = false;
-				cont = true;
+				admin();
 			}
-		}
-		
-		if (cont) {
-			loop = false;
-			admin();
 		}
 	}
 
@@ -139,14 +131,14 @@ public class Admin {
 				s.summary(customerList);
 			}
 		});
-//
+
 		navigateButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				Navigate n = new Navigate();
 				n.navigate(customerList);
 			}
 		});
-//
+
 		accountButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				Account a = new Account();
