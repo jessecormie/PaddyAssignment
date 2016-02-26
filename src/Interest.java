@@ -28,8 +28,8 @@ public class Interest {
 
 		if (customerList.isEmpty()) {
 			JOptionPane.showMessageDialog(f, "There are no customers yet!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
-			Menu menu = new Menu();
-			menu.returnToAdmin();
+//			Menu menu = new Menu();
+//			menu.returnToAdmin();
 
 		} else {
 			while (loop) {
@@ -129,8 +129,9 @@ public class Interest {
 									}
 
 								}
-								Menu menu = new Menu();
-								menu.returnToAdmin();
+//								Menu menu = new Menu();
+//								menu.returnToAdmin();
+								f.dispose();
 							}
 						});
 

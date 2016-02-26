@@ -6,43 +6,37 @@ public class CustomerAccount {
 	private double balance;
 	private ArrayList<AccountTransaction> transactionList;
 
-	// Blank Constructor
 	public CustomerAccount() {
 		
 	}
 
-	// Constructor with Details
 	public CustomerAccount(String number, double balance, ArrayList<AccountTransaction> transactionList) {
 		this.number = number;
 		this.balance = balance;
 		this.transactionList = transactionList;
 	}
 
-	// Accessor methods
-
 	public String getNumber() {
-		return this.number;
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 
 	public double getBalance() {
-		return this.balance;
-	}
-
-	public ArrayList getTransactionList() {
-		return this.transactionList;
-	}
-
-	// Mutator methods
-	public void setNumber(String number) {
-		this.number = number;
+		return balance;
 	}
 
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 
-	public void setTransactionList(ArrayList transactionList) {
-		this.transactionList = transactionList;
+	public ArrayList<AccountTransaction> getTransactionList() {
+		return transactionList;
 	}
 
+	public void setTransactionList(ArrayList<AccountTransaction> transactionList) {
+		this.transactionList = transactionList;
+	}
 }

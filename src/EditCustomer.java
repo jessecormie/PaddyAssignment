@@ -71,19 +71,16 @@ public class EditCustomer {
 			surnameLabel = new JLabel("Surname:", SwingConstants.LEFT);
 			pPPSLabel = new JLabel("PPS Number:", SwingConstants.LEFT);
 			dOBLabel = new JLabel("Date of birth", SwingConstants.LEFT);
-			customerIDLabel = new JLabel("CustomerID:", SwingConstants.LEFT);// not
-																				// dup
-			passwordLabel = new JLabel("Password:", SwingConstants.LEFT);// not
-																			// dup
+			customerIDLabel = new JLabel("CustomerID:", SwingConstants.LEFT);
+			passwordLabel = new JLabel("Password:", SwingConstants.LEFT);
 			firstNameTextField = new JTextField(20);
 			surnameTextField = new JTextField(20);
 			pPSTextField = new JTextField(20);
 			dOBTextField = new JTextField(20);
-			customerIDTextField = new JTextField(20);// not dup
-			passwordTextField = new JTextField(20);// not dup
-			// end of dup
+			customerIDTextField = new JTextField(20);
+			passwordTextField = new JTextField(20);
+			
 			JPanel textPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-
 			JPanel cancelPanel = new JPanel();
 
 			textPanel.add(firstNameLabel);
@@ -148,7 +145,7 @@ public class EditCustomer {
 		for (Customer aCustomer : customerList) {
 			if (aCustomer.getCustomerID().equals(customerID)) {
 				customerList.set(0, customer);
-				Menu menu = new Menu();
+//				Menu menu = new Menu();
 				
 			}
 		}

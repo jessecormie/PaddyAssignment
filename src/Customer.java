@@ -5,12 +5,10 @@ public class Customer {
 	private String PPS, surname, firstName, DOB, customerID, password;
 	private ArrayList<CustomerAccount> accounts;
 
-	// Blank constructor
 	public Customer() {
 
 	}
 
-	// Constructor with details
 	public Customer(String PPS, String surname, String firstName, String DOB, String customerID, String password,
 			ArrayList<CustomerAccount> accounts) {
 		this.PPS = PPS;
@@ -22,7 +20,6 @@ public class Customer {
 		this.accounts = accounts;
 	}
 
-	// Accessor methods
 	public String getPPS() {
 		return this.PPS;
 	}
@@ -51,7 +48,6 @@ public class Customer {
 		return this.accounts;
 	}
 
-	// mutator methods
 	public void setPPS(String PPS) {
 		this.PPS = PPS;
 	}

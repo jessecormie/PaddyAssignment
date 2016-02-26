@@ -109,8 +109,9 @@ public class BankCharges {
 									JOptionPane.showMessageDialog(f, "New balance = " + acc.getBalance(), "Success!",
 											JOptionPane.INFORMATION_MESSAGE);
 								}
-								Menu menu = new Menu();
-								menu.returnToAdmin();
+//								Menu menu = new Menu();
+//								menu.returnToAdmin();
+								f.dispose();
 							}
 						});
 
