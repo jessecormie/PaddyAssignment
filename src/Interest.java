@@ -10,15 +10,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
 
 public class Interest {
-
 	
 	private Customer customer = null;
 	private CustomerAccount acc;
-	private JFrame f, f1;
+	private JFrame f;
 	
 	public void interest(ArrayList<Customer> customerList) {
 
@@ -28,8 +25,6 @@ public class Interest {
 
 		if (customerList.isEmpty()) {
 			JOptionPane.showMessageDialog(f, "There are no customers yet!", "Oops!", JOptionPane.INFORMATION_MESSAGE);
-//			Menu menu = new Menu();
-//			menu.returnToAdmin();
 
 		} else {
 			while (loop) {
@@ -108,8 +103,8 @@ public class Interest {
 								while (loop) {
 									String interestString = JOptionPane.showInputDialog(f,
 											"Enter interest percentage you wish to apply: \n NOTE: Please enter a numerical value. (with no percentage sign) \n E.g: If you wish to apply 8% interest, enter '8'");
-									Menu menu = new Menu();
-									if (menu.isNumeric(interestString)) {
+
+									if (Menu.isNumeric(interestString)) {
 
 										interest = Double.parseDouble(interestString);
 										loop = false;

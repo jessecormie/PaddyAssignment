@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,7 +16,6 @@ public class Navigate {
 
 	private ArrayList<Customer> customerList;
 	private int position = 0;
-	private JFrame f;
 	private JLabel firstNameLabel, surnameLabel, pPPSLabel, dOBLabel, customerIDLabel, passwordLabel;
 	private JTextField firstNameTextField, surnameTextField, pPSTextField, dOBTextField, customerIDTextField,
 			passwordTextField;

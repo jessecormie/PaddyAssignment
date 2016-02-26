@@ -17,45 +17,44 @@ public class RegisterCustomer {
 
 	private ArrayList<Customer> customerList;
 	private JFrame f, f1;
-	private JLabel firstNameLabel, surnameLabel, pPPSLabel, dOBLabel;
-	private JTextField firstNameTextField, surnameTextField, pPSTextField, dOBTextField;
+	private JLabel firstNameLabel, surnameLabel, ppsLabel, dobLabel;
+	private JTextField firstNameTextField, surnameTextField, ppsTextField, dobTextField;
 	private JPanel panel2;
 	private JButton add, cancel;
-	private String PPS, firstName, surname, DOB, CustomerID, password;
-
+	private String pps, firstName, surname, dob, customerID, password;
 
 	public void newCustomer(final ArrayList<Customer> customerList) {
-		this.customerList=customerList;
+		this.customerList = customerList;
 		f1 = new JFrame("Create New Customer");
 		f1.setSize(400, 300);
 		f1.setLocation(200, 200);
 
 		Container content = f1.getContentPane();
 		content.setLayout(new BorderLayout());
-	
+
 		firstNameLabel = new JLabel("First Name:", SwingConstants.RIGHT);
 		surnameLabel = new JLabel("Surname:", SwingConstants.RIGHT);
-		pPPSLabel = new JLabel("PPS Number:", SwingConstants.RIGHT);
-		dOBLabel = new JLabel("Date of birth", SwingConstants.RIGHT);
+		ppsLabel = new JLabel("PPS Number:", SwingConstants.RIGHT);
+		dobLabel = new JLabel("Date of birth", SwingConstants.RIGHT);
 		firstNameTextField = new JTextField(20);
 		surnameTextField = new JTextField(20);
-		pPSTextField = new JTextField(20);
-		dOBTextField = new JTextField(20);
+		ppsTextField = new JTextField(20);
+		dobTextField = new JTextField(20);
 		JPanel panel = new JPanel(new GridLayout(6, 2));
 		panel.add(firstNameLabel);
 		panel.add(firstNameTextField);
 		panel.add(surnameLabel);
 		panel.add(surnameTextField);
-		panel.add(pPPSLabel);
-		panel.add(pPSTextField);
-		panel.add(dOBLabel);
-		panel.add(dOBTextField);
+		panel.add(ppsLabel);
+		panel.add(ppsTextField);
+		panel.add(dobLabel);
+		panel.add(dobTextField);
 
 		panel2 = new JPanel();
 		add = new JButton("Add");
 		add.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				add(customerList);
+				add();
 				f1.dispose();
 			}
 		});
@@ -74,32 +73,27 @@ public class RegisterCustomer {
 
 		f1.setVisible(true);
 	}
-	
-	public void add(ArrayList<Customer> customerList) {
-		this.customerList = customerList;
-		PPS = pPSTextField.getText();
+
+	public void add() {
+		pps = ppsTextField.getText();
 		firstName = firstNameTextField.getText();
 		surname = surnameTextField.getText();
-		DOB = dOBTextField.getText();
-		CustomerID = "ID" + PPS;
+		dob = dobTextField.getText();
+		customerID = "ID" + pps;
 
-		boolean loop = true;
-		while (loop) {
+		boolean notValid = true;
+		while (notValid) {
 			password = JOptionPane.showInputDialog(f, "Enter 7 character Password;");
 
 			if (password.length() != 7) {
 				JOptionPane.showMessageDialog(null, null, "Password must be 7 charatcers long", JOptionPane.OK_OPTION);
 			} else {
-				loop = false;
+				notValid = false;
 				ArrayList<CustomerAccount> accounts = new ArrayList<CustomerAccount>();
-				Customer customer = new Customer(PPS, surname, firstName, DOB, CustomerID, password, accounts);
-				System.out.println("Customer test: " + customer.toString());
+				Customer customer = new Customer(pps, surname, firstName, dob, customerID, password, accounts);
 				customerList.add(customer);
-				
-				System.out.println("Customer List test : " + customerList.toString());
-				JOptionPane.showMessageDialog(f, "CustomerID = " + CustomerID + "\n Password = " + password,
+				JOptionPane.showMessageDialog(f, "CustomerID = " + customerID + "\n Password = " + password,
 						"Customer created.", JOptionPane.INFORMATION_MESSAGE);
-							
 			}
 		}
 	}
@@ -112,6 +106,4 @@ public class RegisterCustomer {
 		this.customerList = customerList;
 	}
 
-	
-	
 }
