@@ -6,11 +6,9 @@ import javax.swing.JOptionPane;
 public class DeleteAccount {
 
 	private JFrame f;
-	private ArrayList<Customer> customerList;
 	private Customer customer;
 
 	public void deleteAccount(ArrayList<Customer> customerList) {
-
 		Object customerID = JOptionPane.showInputDialog(f,
 				"Customer ID of Customer from which you wish to delete an account");
 
