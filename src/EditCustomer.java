@@ -119,5 +119,4 @@ public class EditCustomer {
 		JOptionPane.showMessageDialog(null, "Changes Saved.");
 		f.dispose();
 	}
-
 }
