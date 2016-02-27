@@ -1,4 +1,5 @@
 package Administrator;
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -24,30 +25,24 @@ public class Admin {
 
 	public void login(ArrayList<Customer> customerList) {
 		this.customerList = customerList;
-		boolean loop = true;
 
-		while (loop) {
-			Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
-			Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
-			if (!adminUsername.equals("admin") && !adminPassword.equals("admin11")) {
-				int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Details. Try again?",
-						JOptionPane.YES_NO_OPTION);
-				if (reply == JOptionPane.YES_OPTION) {
-					loop = true;
-				} else if (reply == JOptionPane.NO_OPTION) {
-					loop = false;
-				}
-			} else {
-				loop = false;
-				admin();
+		Object adminUsername = JOptionPane.showInputDialog(f, "Enter Administrator Username:");
+		Object adminPassword = JOptionPane.showInputDialog(f, "Enter Administrator Password;");
+		if (!adminUsername.equals("admin") && !adminPassword.equals("admin11")) {
+			int reply = JOptionPane.showConfirmDialog(null, null, "Incorrect Details. Try again?",
+					JOptionPane.YES_NO_OPTION);
+			if (reply == JOptionPane.YES_OPTION) {
+				login(customerList);
 			}
+		} else {
+			admin();
 		}
 	}
 
-	public void admin() {	
+	public void admin() {
 		SetJFrame sj = new SetJFrame();
-		f = sj.setJFrame("Administrator Menu", 400, 400, 200,200, true);
-		
+		f = sj.setJFrame("Administrator Menu", 400, 400, 200, 200, true);
+
 		JPanel deleteCustomerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JButton deleteCustomer = new JButton("Delete Customer");
 		deleteCustomer.setPreferredSize(new Dimension(250, 20));
